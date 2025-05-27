@@ -3,11 +3,11 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'home',
-        title: 'Accueil',
+        id   : 'wordpress',
+        title: 'WordPress',
         type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
+        icon : 'heroicons_outline:globe-alt',
+        link : '/wordpress'
     },
     {
         id   : 'qualite-architecture',
@@ -17,13 +17,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/qualite-architecture'
     },
     {
-        id   : 'iot-domotique',
-        title: 'IoT & Domotique',
-        type : 'basic',
-        icon : 'heroicons_outline:cpu-chip',
-        link : '/iot-domotique'
-    },
-    {
         id   : 'cloud-iac',
         title: 'Cloud & IaC',
         type : 'basic',
@@ -31,21 +24,28 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/cloud-iac'
     },
     {
-        id   : 'wordpress',
-        title: 'WordPress',
+        id   : 'iot-domotique',
+        title: 'IoT & Domotique',
         type : 'basic',
-        icon : 'heroicons_outline:globe-alt',
-        link : '/wordpress'
+        icon : 'heroicons_outline:cpu-chip',
+        link : '/iot-domotique'
+    },
+    {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'home',
-        title: 'Accueil',
+        id   : 'wordpress',
+        title: 'WordPress',
         type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
+        icon : 'heroicons_outline:globe-alt',
+        link : '/wordpress'
     },
     {
         id   : 'qualite-architecture',
@@ -55,13 +55,6 @@ export const compactNavigation: FuseNavigationItem[] = [
         link : '/qualite-architecture'
     },
     {
-        id   : 'iot-domotique',
-        title: 'IoT & Domotique',
-        type : 'basic',
-        icon : 'heroicons_outline:cpu-chip',
-        link : '/iot-domotique'
-    },
-    {
         id   : 'cloud-iac',
         title: 'Cloud & IaC',
         type : 'basic',
@@ -69,21 +62,28 @@ export const compactNavigation: FuseNavigationItem[] = [
         link : '/cloud-iac'
     },
     {
-        id   : 'wordpress',
-        title: 'WordPress',
+        id   : 'iot-domotique',
+        title: 'IoT & Domotique',
         type : 'basic',
-        icon : 'heroicons_outline:globe-alt',
-        link : '/wordpress'
+        icon : 'heroicons_outline:cpu-chip',
+        link : '/iot-domotique'
+    },
+    {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'home',
-        title: 'Accueil',
+        id   : 'wordpress',
+        title: 'WordPress',
         type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
+        icon : 'heroicons_outline:globe-alt',
+        link : '/wordpress'
     },
     {
         id   : 'qualite-architecture',
@@ -93,13 +93,6 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         link : '/qualite-architecture'
     },
     {
-        id   : 'iot-domotique',
-        title: 'IoT & Domotique',
-        type : 'basic',
-        icon : 'heroicons_outline:cpu-chip',
-        link : '/iot-domotique'
-    },
-    {
         id   : 'cloud-iac',
         title: 'Cloud & IaC',
         type : 'basic',
@@ -107,21 +100,28 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         link : '/cloud-iac'
     },
     {
-        id   : 'wordpress',
-        title: 'WordPress',
+        id   : 'iot-domotique',
+        title: 'IoT & Domotique',
         type : 'basic',
-        icon : 'heroicons_outline:globe-alt',
-        link : '/wordpress'
+        icon : 'heroicons_outline:cpu-chip',
+        link : '/iot-domotique'
+    },
+    {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'home',
-        title: 'Accueil',
+        id   : 'wordpress',
+        title: 'WordPress',
         type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
+        icon : 'heroicons_outline:globe-alt',
+        link : '/wordpress'
     },
     {
         id   : 'qualite-architecture',
@@ -131,13 +131,6 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         link : '/qualite-architecture'
     },
     {
-        id   : 'iot-domotique',
-        title: 'IoT & Domotique',
-        type : 'basic',
-        icon : 'heroicons_outline:cpu-chip',
-        link : '/iot-domotique'
-    },
-    {
         id   : 'cloud-iac',
         title: 'Cloud & IaC',
         type : 'basic',
@@ -145,10 +138,17 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         link : '/cloud-iac'
     },
     {
-        id   : 'wordpress',
-        title: 'WordPress',
+        id   : 'iot-domotique',
+        title: 'IoT & Domotique',
         type : 'basic',
-        icon : 'heroicons_outline:globe-alt',
-        link : '/wordpress'
+        icon : 'heroicons_outline:cpu-chip',
+        link : '/iot-domotique'
+    },
+    {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
