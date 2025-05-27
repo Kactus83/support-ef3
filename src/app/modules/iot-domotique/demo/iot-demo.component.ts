@@ -37,17 +37,17 @@ export class IotDemoComponent {
     {
       id: 'mobile-ui',
       title: 'UI Mobile',
-      videoSrc: '/assets/videos/demo-mobile-ui.mp4'
+      videoSrc: '/videos/demo-mobile-ui.mp4'
     },
     {
       id: 'led-demo-1',
       title: 'Démo LEDs',
-      videoSrc: '/assets/videos/demo-led.mp4'
+      videoSrc: '/videos/demo-led.mp4'
     },
     {
       id: 'led-demo-2',
       title: 'Démo LEDs (Effets dynamiques)',
-      videoSrc: '/assets/videos/demo-leds-2.mp4'
+      videoSrc: '/videos/demo-leds-2.mp4'
     }
   ];
 
