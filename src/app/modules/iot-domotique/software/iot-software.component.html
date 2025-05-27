@@ -1,0 +1,140 @@
+<div class="max-w-4xl mx-auto py-12 space-y-12">
+
+  <!-- Retour -->
+  <button mat-icon-button routerLink="../" aria-label="Retour">
+    <mat-icon class="text-2xl">arrow_back</mat-icon>
+  </button>
+
+  <!-- Protocoles IoT -->
+  <section class="space-y-6">
+    <h2 class="text-3xl font-semibold text-center">Protocoles IoT</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div *ngFor="let p of protocols"
+           class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">{{ p.icon }}</mat-icon>
+        <h3 class="text-xl font-medium mb-2">{{ p.title }}</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">{{ p.desc }}</p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="open(p.id)"
+        >
+          Détails {{ p.title }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passerelles & Assistants -->
+  <section class="space-y-6">
+    <h2 class="text-3xl font-semibold text-center">Passerelles &amp; Assistants</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div *ngFor="let g of gateways"
+           class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">{{ g.icon }}</mat-icon>
+        <h3 class="text-xl font-medium mb-2">{{ g.title }}</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">{{ g.desc }}</p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="open(g.id)"
+        >
+          Détails {{ g.title }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overlay Détail -->
+  <ng-container *ngIf="overlay">
+    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+      <div
+        class="relative bg-white rounded-2xl p-8 max-w-3xl w-full overflow-y-auto max-h-[85vh]"
+      >
+        <!-- Bouton Fermer -->
+        <button
+          mat-icon-button
+          (click)="close()"
+          class="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+
+        <!-- Titre -->
+        <h3 class="text-3xl font-semibold mb-4">
+          <ng-container [ngSwitch]="overlay">
+            <span *ngSwitchCase="'mqtt'">MQTT</span>
+            <span *ngSwitchCase="'lora'">LoRa</span>
+            <span *ngSwitchCase="'zigbee'">Zigbee</span>
+            <span *ngSwitchCase="'homeassistant'">Home Assistant</span>
+            <span *ngSwitchCase="'googlehome'">Google Home</span>
+            <span *ngSwitchCase="'alexa'">Amazon Alexa</span>
+          </ng-container>
+        </h3>
+
+        <!-- Contenu détaillé -->
+        <div [ngSwitch]="overlay" class="space-y-4 text-base text-gray-700">
+          <!-- MQTT -->
+          <div *ngSwitchCase="'mqtt'">
+            <p><strong>Pattern Pub/Sub</strong> : éditeurs/souscripteurs découplés via topics hiérarchiques.</p>
+            <p><strong>QoS 0–2</strong> : du best-effort à la livraison garantie.</p>
+            <p><strong>Retained Messages</strong> : dernière valeur stockée pour nouveaux abonnés.</p>
+            <p><strong>Sécurité</strong> : TLS, authentification par certificats ou login/mdp.</p>
+          </div>
+
+          <!-- LoRa -->
+          <div *ngSwitchCase="'lora'">
+            <p><strong>Longue portée</strong> : jusqu’à 10 km en champ libre, faible débit (~0.3–50 kbps).</p>
+            <p><strong>Low-Power</strong> : idéal pour capteurs alimentés sur batterie.</p>
+            <p><strong>Star-of-Stars</strong> : capteurs → gateways → réseau centralisé.</p>
+            <p><strong>LoRaWAN</strong> : couche réseau avec gestion ADR, canaux et sécurité AES128.</p>
+          </div>
+
+          <!-- Zigbee -->
+          <div *ngSwitchCase="'zigbee'">
+            <p><strong>Mesh Network</strong> : chaque appareil peut relayer le signal.</p>
+            <p><strong>Short-Range</strong> : 10–100 m, faible consommation.</p>
+            <p><strong>Clusters Standards</strong> : universels (On/Off, Level Control, Sensors…).</p>
+            <p><strong>Interopérabilité</strong> : profil Home Automation, Green Power, etc.</p>
+          </div>
+
+          <!-- Home Assistant -->
+          <div *ngSwitchCase="'homeassistant'">
+            <p><strong>Open-Source</strong> : code et intégrations communautaires.</p>
+            <p><strong>Lovеlace UI</strong> : dashboards personnalisables en YAML ou via éditeur visuel.</p>
+            <p><strong>Automatisations</strong> : triggers, conditions et actions flexibles.</p>
+            <p><strong>Plus de 2000 Intégrations</strong> : IoT, cloud, services web, médias.</p>
+          </div>
+
+          <!-- Google Home -->
+          <div *ngSwitchCase="'googlehome'">
+            <p><strong>Assistant Voice-First</strong> : Actions SDK, Dialogflow pour créer des commandes.</p>
+            <p><strong>Écosystème Google</strong> : routines, Assistant routines, Google Cloud Functions.</p>
+            <p><strong>Limitations</strong> : moins personnalisable qu’un serveur local, dépendance cloud.</p>
+          </div>
+
+          <!-- Amazon Alexa -->
+          <div *ngSwitchCase="'alexa'">
+            <p><strong>Alexa Skills Kit</strong> : création de skills pour smart home ou voice UX.</p>
+            <p><strong>Smart Home API</strong> : device discovery, directives, état.</p>
+            <p><strong>Routines</strong> : scénarios complexes, intégration calendriers, notifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Bouton Suivant -->
+  <div class="text-center">
+    <button
+      mat-flat-button
+      color="primary"
+      class="fuse-mat-button-large"
+      routerLink="../demo"
+    >
+      Suivant : Démos
+    </button>
+  </div>
+</div>

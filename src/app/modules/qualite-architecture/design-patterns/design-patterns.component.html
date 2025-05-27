@@ -1,0 +1,66 @@
+<div class="w-full min-h-screen bg-gray-50 flex justify-center items-start">
+  <div class="w-full max-w-4xl p-4">
+    <!-- Retour -->
+    <button
+      mat-icon-button
+      routerLink="../"
+      aria-label="Retour"
+      class="mb-2"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <!-- Introduction -->
+    <section class="text-center mb-6">
+      <h1 class="text-5xl font-extrabold mb-2">Design Patterns</h1>
+      <p class="text-lg md:text-xl text-gray-600">
+        Cinq patrons incontournables pour organiser et réutiliser votre code.  
+        Cliquez sur un cercle ou sur « Suivant » pour explorer chacun.
+      </p>
+    </section>
+
+    <!-- Cercles alignés -->
+    <section class="flex justify-center space-x-6 mb-4">
+      <ng-container *ngFor="let pt of patterns">
+        <div
+          class="flex items-center justify-center text-white font-bold rounded-full cursor-pointer transition-all duration-300 hover:shadow-lg"
+          [ngClass]="[
+            selected === pt.id ? 'px-8 py-3' : 'w-16 h-16',
+            pt.color
+          ]"
+          (click)="select(pt.id)"
+        >
+          <span class="text-xl" *ngIf="selected !== pt.id">{{ pt.id.charAt(0).toUpperCase() }}</span>
+          <span
+            *ngIf="selected === pt.id"
+            class="ml-2 text-lg font-medium whitespace-nowrap"
+          >
+            {{ pt.name }}
+          </span>
+        </div>
+      </ng-container>
+    </section>
+
+    <!-- Détail animé -->
+    <section
+      class="relative overflow-hidden rounded-lg transition-all duration-500"
+      [ngClass]="selected ? getColor(selected) : ''"
+      [style.maxHeight]="selected ? '450px' : '0'"
+    >
+      <div class="absolute top-2 right-2 z-10" *ngIf="selected">
+        <button
+          mat-icon-button
+          aria-label="Suivant"
+          (click)="next()"
+        >
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+      <div class="p-6 text-white prose prose-lg" *ngIf="selected">
+        <ng-container *ngFor="let pt of patterns">
+          <div *ngIf="pt.id === selected" [innerHTML]="pt.detail"></div>
+        </ng-container>
+      </div>
+    </section>
+  </div>
+</div>

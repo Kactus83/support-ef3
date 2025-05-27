@@ -1,0 +1,223 @@
+<div class="max-w-4xl mx-auto py-12 space-y-12">
+
+  <!-- Retour -->
+  <button mat-icon-button routerLink="../" aria-label="Retour">
+    <mat-icon class="text-2xl">arrow_back</mat-icon>
+  </button>
+
+  <!-- Section Cartes -->
+  <section class="space-y-6">
+    <h2 class="text-3xl font-semibold text-center">Cartes &amp; Microcontrôleurs</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">memory</mat-icon>
+        <h3 class="text-xl font-medium mb-2">Arduino</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          IDE local, connexion USB, vaste communauté et large écosystème de shields.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openBoard('arduino')"
+        >
+          Détail Arduino
+        </button>
+      </div>
+
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">cloud</mat-icon>
+        <h3 class="text-xl font-medium mb-2">Particle</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          IDE en ligne, compilation cloud, mises à jour OTA et connectivité Wi-Fi/Cellular.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openBoard('particle')"
+        >
+          Détail Particle
+        </button>
+      </div>
+
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">devices</mat-icon>
+        <h3 class="text-xl font-medium mb-2">Wemos D1 Mini</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          Basé ESP8266, petit format, Wi-Fi intégré, modules d’extension compatibles.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openBoard('d1mini')"
+        >
+          Détail D1 Mini
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Bandeaux LED -->
+  <section class="space-y-6">
+    <h2 class="text-3xl font-semibold text-center">Rubans LED Addressables</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">flash_on</mat-icon>
+        <h3 class="text-xl font-medium mb-2">RGB (WS281x)</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          Un fil de données, timing serré (~800 kHz), 8 bit par canal, libs FastLED/NeoPixel.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openLed('wsrgb')"
+        >
+          Détail RGB
+        </button>
+      </div>
+
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">invert_colors</mat-icon>
+        <h3 class="text-xl font-medium mb-2">RGBW</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          Ajout d’un canal blanc dédié, meilleur rendu colorimétrique et luminosité.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openLed('rgbw')"
+        >
+          Détail RGBW
+        </button>
+      </div>
+
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">view_comfy</mat-icon>
+        <h3 class="text-xl font-medium mb-2">COB</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          Chip-On-Board pour densité et uniformité maximales, pilotage SPI/PWM.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openLed('cob')"
+        >
+          Détail COB
+        </button>
+      </div>
+
+      <div class="bg-card rounded-2xl p-6 shadow flex flex-col h-full">
+        <mat-icon class="text-5xl mb-4">sync_alt</mat-icon>
+        <h3 class="text-xl font-medium mb-2">Clocked (APA102/SK)</h3>
+        <p class="text-base text-gray-600 mb-6 flex-grow">
+          Bus horloge+data, tolérance temporelle, 16 bit par canal, hautes fréquences.
+        </p>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large self-center"
+          (click)="openLed('clocked')"
+        >
+          Détail Clocked
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overlay Cartes -->
+  <ng-container *ngIf="boardOverlay">
+    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+      <div class="relative bg-white rounded-2xl p-8 max-w-2xl w-full space-y-6 overflow-y-auto max-h-[90vh]">
+        <button
+          mat-icon-button
+          (click)="close()"
+          class="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <h3 class="text-3xl font-semibold">
+          {{ boardOverlay === 'arduino' ? 'Arduino' : boardOverlay === 'particle' ? 'Particle' : 'Wemos D1 Mini' }}
+        </h3>
+        <div *ngIf="boardOverlay === 'arduino'" class="space-y-4 text-base text-gray-700">
+          <p>• Programmation en C/C++ via IDE local.</p>
+          <p>• Connexion USB, upload plug-and-play.</p>
+          <p>• Large communauté et shields variés.</p>
+          <p>• Idéal pour prototypage rapide sans dépendance cloud.</p>
+        </div>
+        <div *ngIf="boardOverlay === 'particle'" class="space-y-4 text-base text-gray-700">
+          <p>• IDE en ligne et compilation dans le cloud.</p>
+          <p>• Mises à jour OTA (Over-The-Air).</p>
+          <p>• Dashboard & API pour pilotage à distance.</p>
+          <p>• Connectivité Wi-Fi et Cellular intégrée.</p>
+        </div>
+        <div *ngIf="boardOverlay === 'd1mini'" class="space-y-4 text-base text-gray-700">
+          <p>• ESP8266 intégré, Wi-Fi natif.</p>
+          <p>• Format ultra-compact avec shields.</p>
+          <p>• Parfait pour applications IoT basse consommation.</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Overlay Bandeaux LED -->
+  <ng-container *ngIf="ledOverlay">
+    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+      <div class="relative bg-white rounded-2xl p-8 max-w-2xl w-full space-y-6 overflow-y-auto max-h-[90vh]">
+        <button
+          mat-icon-button
+          (click)="close()"
+          class="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <h3 class="text-3xl font-semibold">
+          <ng-container [ngSwitch]="ledOverlay">
+            <span *ngSwitchCase="'wsrgb'">Bandeaux RGB (WS281x)</span>
+            <span *ngSwitchCase="'rgbw'">Bandeaux RGBW</span>
+            <span *ngSwitchCase="'cob'">Bandeaux COB</span>
+            <span *ngSwitchCase="'clocked'">Clocked (APA102/SK)</span>
+          </ng-container>
+        </h3>
+        <div [ngSwitch]="ledOverlay" class="space-y-4 text-base text-gray-700">
+          <div *ngSwitchCase="'wsrgb'">
+            <p>• Un fil de données, timing précis (~800 kHz).</p>
+            <p>• 8 bit par canal (R, G, B).</p>
+            <p>• Bibliothèques FastLED & NeoPixel.</p>
+          </div>
+          <div *ngSwitchCase="'rgbw'">
+            <p>• Quatre canaux (R, G, B, W) pour blanc dédié.</p>
+            <p>• Meilleur rendu colorimétrique et contraste.</p>
+            <p>• Gestion de température de couleur.</p>
+          </div>
+          <div *ngSwitchCase="'cob'">
+            <p>• Plusieurs LED sur une même puce.</p>
+            <p>• Uniformité sans diffuseur externe.</p>
+            <p>• Pilotage via SPI ou PWM standard.</p>
+          </div>
+          <div *ngSwitchCase="'clocked'">
+            <p>• Bus clock+data, tolérance temporelle accrue.</p>
+            <p>• Fréquences jusqu’à plusieurs MHz.</p>
+            <p>• 16 bit par canal pour dégradés ultra-fins.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Bouton suivant -->
+  <div class="text-center">
+    <button
+      mat-flat-button
+      color="primary"
+      class="fuse-mat-button-large"
+      routerLink="../software"
+    >
+      Suivant : Software
+    </button>
+  </div>
+</div>

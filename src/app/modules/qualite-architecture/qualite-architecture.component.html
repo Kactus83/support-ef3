@@ -1,0 +1,54 @@
+<div class="flex min-w-0 flex-auto flex-col">
+  <!-- Header -->
+  <div
+    class="bg-card flex flex-col border-b p-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-8"
+  >
+    <div class="flex-1">
+      <div class="flex items-center font-medium text-gray-500 text-sm">
+        <mat-icon class="mr-2">build</mat-icon>
+        Qualité de Code & Architecture
+      </div>
+      <h2 class="mt-2 text-3xl font-extrabold leading-tight">
+        Contexte & Bonnes Pratiques
+      </h2>
+    </div>
+  </div>
+
+  <!-- Contexte détaillé -->
+  <div class="flex-auto p-6 sm:p-10">
+    <div class="max-w-3xl mx-auto prose prose-sm">
+      <h3>Pourquoi la Qualité de Code ?</h3>
+      <p>
+        Mes premiers projets devenaient rapidement difficiles à maintenir : classes
+        multitâches, tests inexistants et refontes répétées. J’ai compris qu’un
+        bon design n’était pas un luxe, mais une nécessité pour gagner en
+        productivité et fiabilité.
+      </p>
+      <h3>Mes lectures clés</h3>
+      <p>
+        <em>Clean Code</em> et <em>Clean Architecture</em> (Robert C. Martin)
+        m’ont guidé vers les principes SOLID et les patterns de découplage,
+        transformant ma façon d’aborder le code.
+      </p>
+      <h3>Choisissez votre chapitre</h3>
+      <div class="flex flex-wrap gap-4 mt-4">
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large"
+          routerLink="solid"
+        >
+          Principes SOLID
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          class="fuse-mat-button-large"
+          routerLink="design-patterns"
+        >
+          Design Patterns
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
