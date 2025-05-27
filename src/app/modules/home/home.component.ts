@@ -51,7 +51,7 @@ export class HomeComponent {
     {
       icon: 'school',
       title: 'Collège & Lycée',
-      dateRange: '2008 – 2012',
+      dateRange: '2007 – 2010',
       description: `C’est au collège que j’ai découvert Dreamweaver. HTML, CSS, PHP puis
 JavaScript : j’ai monté mes premiers sites personnels, fasciné par la magie
 de transformer du code en pages interactives dans un navigateur.`
@@ -59,7 +59,7 @@ de transformer du code en pages interactives dans un navigateur.`
     {
       icon: 'bolt',
       title: 'Entreprise d’électricité',
-      dateRange: '2012 – 2018',
+      dateRange: '2012 – 2015',
       description: `À la tête d’une PME d’électricité sur la Côte d’Azur, j’ai implémenté
 des solutions domotiques (THEBIS, LEGRAND). Face à leurs protocoles
 propriétaires, j’ai compris l’enjeu de l’interopérabilité logicielle.`,
@@ -69,7 +69,7 @@ propriétaires, j’ai compris l’enjeu de l’interopérabilité logicielle.`,
     {
       icon: 'desktop_windows',
       title: 'Services numériques',
-      dateRange: '2018 – 2019',
+      dateRange: '2018 – 2020',
       description: `En accompagnant des sites WordPress, j’ai appris la structure de thèmes
 et de plugins, la maintenance SEO et les bonnes pratiques de performance.
 Puis j’ai migré vers TypeScript, Angular et React pour plus de robustesse.`,
@@ -79,7 +79,7 @@ Puis j’ai migré vers TypeScript, Angular et React pour plus de robustesse.`,
     {
       icon: 'sports_esports',
       title: 'Projets Gaming',
-      dateRange: '2019 – 2021',
+      dateRange: '2019 – Présent',
       description: `Mes prototypes sont passés à Docker et aux micro-services. Confronté
 à la dette technique, j’ai adopté SOLID et les design patterns, structurant
 mes applications pour qu’elles restent maintenables à grande échelle.`,
@@ -89,7 +89,7 @@ mes applications pour qu’elles restent maintenables à grande échelle.`,
     {
       icon: 'wifi',
       title: 'Objets Connectés',
-      dateRange: '2021 – 2023',
+      dateRange: '2019 – Présent',
       description: `DIY IoT : capteurs MQTT, passerelles LoRa, flash de firmwares,
 intégration Home Assistant… Chaque projet m’a appris à concilier contraintes
 hardware et exigences software.`,
