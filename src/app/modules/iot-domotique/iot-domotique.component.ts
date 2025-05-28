@@ -6,6 +6,7 @@ import {
 import { CommonModule }    from '@angular/common';
 import { RouterModule }    from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-iot-domotique',
@@ -13,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIcon
   ],
   templateUrl: './iot-domotique.component.html',
   encapsulation: ViewEncapsulation.None,

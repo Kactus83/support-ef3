@@ -6,12 +6,10 @@
     "license": "https://themeforest.net/licenses/standard",
     "private": true,
     "scripts": {
-        "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-    "deploy": "npm run build && npx angular-cli-ghpages --dir=dist/fuse/browser --repo=https://github.com/Kactus83/support-ef3.git"
+        "build:prod": "ng build --configuration production --base-href=/support-ef3/ --deploy-url=/support-ef3/",
+        "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/fuse/browser --repo=https://github.com/Kactus83/support-ef3.git"
     },
     "dependencies": {
         "@angular/animations": "18.0.1",

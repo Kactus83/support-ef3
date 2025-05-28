@@ -1,177 +1,214 @@
-<div class="w-full min-h-screen bg-gray-50 flex flex-col items-center pt-12 pb-20">
-  <div class="w-full max-w-4xl px-4">
-    <!-- Retour -->
-    <button
-      mat-icon-button
-      routerLink="../"
-      aria-label="Retour"
-      class="mb-6"
-    >
-      <mat-icon class="text-2xl">arrow_back</mat-icon>
-    </button>
-
-    <!-- Introduction enrichie -->
-    <section class="text-center mb-12 space-y-4">
-      <h1 class="text-5xl font-extrabold leading-tight">
+<div class="flex min-w-0 flex-auto flex-col">
+  <!-- Header -->
+  <div
+    class="bg-card flex flex-0 flex-col border-b p-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-8"
+  >
+    <div class="min-w-0 flex-1">
+      <div class="flex items-center font-medium text-gray-500">
+        <mat-icon class="mr-2">cloud</mat-icon>
         Cloud & Infrastructure as Code
-      </h1>
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-        Après plus de cinq ans à orchestrer mes projets en local via Docker-Compose, j'ai rencontré les limites pour la mise en production (volumes persistants, bases managées, backups).  
-        J'ai débuté avec des scripts bash pour GCP, puis AWS m'a montré qu'une CLI propre à chaque fournisseur n'est pas portable.
-      </p>
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-        Terraform a tout changé : syntaxe déclarative (HCL), modules réutilisables, état versionné et workflow « plan/apply » dans le CI.  
-        Mon infra GCP & AWS se déploie désormais en quelques minutes, traçable et sans intervention manuelle.
-      </p>
-    </section>
-
-    <!-- Boutons plateformes -->
-    <section class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
-      <button
-        mat-flat-button
-        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-md text-lg"
-        (click)="open('gcp')"
-      >
-        <mat-icon class="mr-2 text-2xl">cloud_queue</mat-icon>
-        Google Cloud
-      </button>
-
-      <button
-        mat-flat-button
-        class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 shadow-md text-lg"
-        (click)="open('aws')"
-      >
-        <mat-icon class="mr-2 text-2xl">cloud</mat-icon>
-        AWS
-      </button>
-
-      <button
-        mat-flat-button
-        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 shadow-md text-lg"
-        (click)="open('terraform')"
-      >
-        <mat-icon class="mr-2 text-2xl">code</mat-icon>
-        Terraform
-      </button>
-    </section>
+      </div>
+      <div class="mt-2">
+        <h2
+          class="truncate text-3xl font-extrabold leading-7 sm:leading-10 md:text-4xl"
+        >
+          Cloud & Infrastructure as Code
+        </h2>
+      </div>
+    </div>
   </div>
 
-  <!-- Overlay modal -->
-  <div
-    *ngIf="current"
-    class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-6 z-50"
-  >
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[95vh] overflow-y-auto relative p-6">
-      <!-- En-tête -->
-      <div class="flex justify-between items-center border-b pb-4 mb-6">
-        <h2 class="text-4xl font-semibold flex items-center space-x-3">
-          <ng-container [ngSwitch]="current">
-            <mat-icon *ngSwitchCase="'gcp'" class="text-blue-600 text-3xl">cloud_queue</mat-icon>
-            <mat-icon *ngSwitchCase="'aws'" class="text-orange-500 text-3xl">cloud</mat-icon>
-            <mat-icon *ngSwitchCase="'terraform'" class="text-green-600 text-3xl">code</mat-icon>
-          </ng-container>
-          <span class="align-middle">
-            <ng-container [ngSwitch]="current">
-              <span *ngSwitchCase="'gcp'">Google Cloud Platform</span>
-              <span *ngSwitchCase="'aws'">Amazon Web Services</span>
-              <span *ngSwitchCase="'terraform'">Terraform</span>
-            </ng-container>
-          </span>
-        </h2>
+  <!-- Main content  -->
+  <div class="flex-auto">
+    <div class="w-full bg-gray-50 flex flex-col items-center pt-12 pb-20">
+      <div class="w-full max-w-4xl px-4">
+        <!-- Retour -->
         <button
           mat-icon-button
-          aria-label="Fermer"
-          (click)="close()"
-          class="text-gray-500 hover:text-gray-700 text-2xl"
+          routerLink="../"
+          aria-label="Retour"
+          class="mb-6"
         >
-          <mat-icon>close</mat-icon>
+          <mat-icon class="text-2xl">arrow_back</mat-icon>
         </button>
+
+        <!-- Introduction enrichie -->
+        <section class="text-center mb-12 space-y-4">
+          <h1 class="text-5xl font-extrabold leading-tight">
+            Cloud & Infrastructure as Code
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Après plus de cinq ans à orchestrer mes projets en local via Docker-Compose, j'ai rencontré les limites pour la mise en production (volumes persistants, bases managées, backups).  
+            J'ai débuté avec des scripts bash pour GCP, puis AWS m'a montré qu'une CLI propre à chaque fournisseur n'est pas portable.
+          </p>
+          <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            L'apprentissage de Terraform m'a permi d'aller encore plus loin, me permettant désormais
+            de créer ou mettre à jour mon infrastructure en quelques minutes, de manière traçable et sans intervention manuelle.
+          </p>
+        </section>
+
+        <!-- Titre d'annonce des boutons -->
+        <h2 class="text-3xl font-semibold text-center mb-8">
+          Pour plus de détails :
+        </h2>
+
+        <!-- Boutons plateformes -->
+        <section class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+          <button
+            mat-flat-button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-md text-lg"
+            (click)="open('gcp')"
+          >
+            <mat-icon class="mr-2 text-2xl">cloud_queue</mat-icon>
+            Google Cloud
+          </button>
+
+          <button
+            mat-flat-button
+            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 shadow-md text-lg"
+            (click)="open('aws')"
+          >
+            <mat-icon class="mr-2 text-2xl">cloud</mat-icon>
+            AWS
+          </button>
+
+          <button
+            mat-flat-button
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 shadow-md text-lg"
+            (click)="open('terraform')"
+          >
+            <mat-icon class="mr-2 text-2xl">code</mat-icon>
+            Terraform
+          </button>
+        </section>
       </div>
 
-      <!-- Corps du modal -->
-      <div class="space-y-8 text-gray-800">
-        <!-- Google Cloud Detail -->
-        <ng-container *ngIf="current === 'gcp'">
-          <section class="space-y-4">
-            <h3 class="text-3xl font-semibold">Pourquoi Google Cloud ?</h3>
-            <p class="text-xl">
-              GCP propose des services managés de bout en bout : Compute Engine pour des VM puissantes,  
-              Cloud Functions pour du serverless, Cloud Storage pour un stockage durable et Cloud SQL  
-              pour des bases relationnelles production-ready.
-            </p>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Services clés</h4>
-            <ul class="list-disc list-inside space-y-2 text-lg">
-              <li><strong>Compute Engine</strong> : machines virtuelles flexibles.</li>
-              <li><strong>Cloud Functions</strong> : fonctions serverless event-driven.</li>
-              <li><strong>Cloud Storage</strong> : stockage objet hautement durable.</li>
-              <li><strong>Cloud SQL</strong> : instances MySQL/PostgreSQL gérées.</li>
-            </ul>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Mon implémentation IaC</h4>
-            <p class="text-xl">
-              Mes modules Terraform provisio-nnent un VPC complet (VPC, subnets, firewall),  
-              un cluster GKE et un load balancer, tous paramétrables via variables, avec rollback automatique.
-            </p>
-          </section>
-        </ng-container>
+      <!-- Overlay modal -->
+      <div
+        *ngIf="current"
+        class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-6 z-50"
+      >
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[98vh] overflow-y-auto relative p-8">
+          <!-- En-tête modal -->
+          <div class="flex justify-between items-center border-b pb-4 mb-6">
+            <h2 class="text-4xl font-semibold flex items-center space-x-3">
+              <ng-container [ngSwitch]="current">
+                <mat-icon *ngSwitchCase="'gcp'" class="text-blue-600 text-3xl">cloud_queue</mat-icon>
+                <mat-icon *ngSwitchCase="'aws'" class="text-orange-500 text-3xl">cloud</mat-icon>
+                <mat-icon *ngSwitchCase="'terraform'" class="text-green-600 text-3xl">code</mat-icon>
+              </ng-container>
+              <span class="align-middle">
+                <ng-container [ngSwitch]="current">
+                  <span *ngSwitchCase="'gcp'">Google Cloud Platform</span>
+                  <span *ngSwitchCase="'aws'">Amazon Web Services</span>
+                  <span *ngSwitchCase="'terraform'">Terraform</span>
+                </ng-container>
+              </span>
+            </h2>
+            <button
+              mat-icon-button
+              aria-label="Fermer"
+              (click)="close()"
+              class="text-gray-500 hover:text-gray-700 text-2xl"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
 
-        <!-- AWS Detail -->
-        <ng-container *ngIf="current === 'aws'">
-          <section class="space-y-4">
-            <h3 class="text-3xl font-semibold">Pourquoi AWS ?</h3>
-            <p class="text-xl">
-              AWS, leader incontesté, offre EC2 pour des instances VM, Lambda pour le serverless,  
-              S3 pour le stockage objet et RDS pour des bases SQL managées avec backups automatiques.
-            </p>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Services clés</h4>
-            <ul class="list-disc list-inside space-y-2 text-lg">
-              <li><strong>EC2</strong> : VM hautement configurables.</li>
-              <li><strong>Lambda</strong> : fonctions serverless sans gestion de serveurs.</li>
-              <li><strong>S3</strong> : stockage ultra-scalable.</li>
-              <li><strong>RDS</strong> : bases SQL managées, snapshots automatiques.</li>
-            </ul>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Mon implémentation IaC</h4>
-            <p class="text-xl">
-              J’ai adapté mes modules Terraform pour AWS : IAM roles, Auto Scaling EC2, S3 buckets  
-              et RDS via un unique code partagé avec GCP, assurant la portabilité multi-cloud.
-            </p>
-          </section>
-        </ng-container>
+          <!-- Corps du modal -->
+          <div class="space-y-8 text-gray-800">
+            <!-- Google Cloud Detail -->
+            <ng-container *ngIf="current === 'gcp'">
+              <section class="space-y-4">
+                <h3 class="text-3xl font-semibold">Pourquoi Google Cloud ?</h3>
+                <p class="text-xl">
+                  GCP propose des services managés de bout en bout : Compute Engine pour des VM puissantes,  
+                  Cloud Functions pour du serverless, Cloud Storage pour un stockage durable et Cloud SQL  
+                  pour des bases relationnelles production-ready.
+                </p>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Services clés</h4>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                  <li><strong>Compute Engine</strong> : machines virtuelles flexibles.</li>
+                  <li><strong>Cloud Functions</strong> : fonctions serverless event-driven.</li>
+                  <li><strong>Cloud Storage</strong> : stockage objet hautement durable.</li>
+                  <li><strong>Cloud SQL</strong> : instances MySQL/PostgreSQL gérées.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Mon implémentation IaC</h4>
+                <p class="text-xl">
+                  Mes modules Terraform provisionnent un VPC complet (VPC, subnets, firewall),  
+                  un cluster GKE et un load balancer, tous paramétrables via variables, avec rollback automatique.
+                </p>
+              </section>
+            </ng-container>
 
-        <!-- Terraform Detail -->
-        <ng-container *ngIf="current === 'terraform'">
-          <section class="space-y-4">
-            <h3 class="text-3xl font-semibold">Pourquoi Terraform ?</h3>
-            <p class="text-xl">
-              Terraform propose un langage déclaratif (HCL) et un gestionnaire d’état pour orchestrer  
-              facilement vos ressources sur n’importe quel cloud, avec planification et audit de chaque modification.
-            </p>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Fonctionnalités clés</h4>
-            <ul class="list-disc list-inside space-y-2 text-lg">
-              <li><strong>Providers</strong> : plugins multi-cloud.</li>
-              <li><strong>Modules</strong> : blocs réutilisables pour structurer l’infra.</li>
-              <li><strong>State</strong> : suivi et détection des dérives.</li>
-              <li><strong>Plan & Apply</strong> : validation avant exécution.</li>
-            </ul>
-          </section>
-          <section>
-            <h4 class="text-2xl font-medium mb-2">Mon workflow CI/CD</h4>
-            <p class="text-xl">
-              Un pipeline GitHub Actions automatise <code>terraform plan</code> sur chaque PR et  
-              <code>terraform apply</code> sur la branche main, garantissant un infra toujours à jour  
-              et traçable.
-            </p>
-          </section>
-        </ng-container>
+            <!-- AWS Detail -->
+            <ng-container *ngIf="current === 'aws'">
+              <section class="space-y-4">
+                <h3 class="text-3xl font-semibold">Pourquoi AWS ?</h3>
+                <p class="text-xl">
+                  AWS, leader incontesté, offre EC2 pour des instances VM, Lambda pour le serverless,  
+                  S3 pour le stockage objet et RDS pour des bases SQL managées avec backups automatiques.
+                </p>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Services clés</h4>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                  <li><strong>EC2</strong> : VM hautement configurables.</li>
+                  <li><strong>Lambda</strong> : fonctions serverless sans gestion de serveurs.</li>
+                  <li><strong>S3</strong> : stockage ultra-scalable.</li>
+                  <li><strong>RDS</strong> : bases SQL managées, snapshots automatiques.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Mon implémentation IaC</h4>
+                <p class="text-xl">
+                  J’ai adapté mes modules Terraform pour AWS : IAM roles, Auto Scaling EC2, S3 buckets  
+                  et RDS via un unique code partagé avec GCP, assurant la portabilité multi-cloud.
+                </p>
+              </section>
+            </ng-container>
+
+            <!-- Terraform Detail -->
+            <ng-container *ngIf="current === 'terraform'">
+              <section class="space-y-4">
+                <h3 class="text-3xl font-semibold">Pourquoi Terraform ?</h3>
+                <p class="text-xl">
+                  Terraform propose un langage déclaratif (HCL) et un gestionnaire d’état pour orchestrer  
+                  facilement vos ressources sur n’importe quel cloud, avec planification et audit de chaque modification.
+                </p>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Fonctionnalités clés</h4>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                  <li><strong>Providers</strong> : plugins multi-cloud.</li>
+                  <li><strong>Modules</strong> : blocs réutilisables pour structurer l’infra.</li>
+                  <li><strong>State</strong> : suivi et détection des dérives.</li>
+                  <li><strong>Plan & Apply</strong> : validation avant exécution.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="text-2xl font-medium mb-2">Mon workflow CI/CD</h4>
+                <p class="text-xl">
+                  Un pipeline GitHub Actions automatise <code>terraform plan</code> sur chaque PR et  
+                  <code>terraform apply</code> sur la branche main, garantissant un infra toujours à jour  
+                  et traçable.
+                </p>
+              </section>
+            </ng-container>
+
+            <!-- Certifications possibles -->
+            <section class="mt-6 border-t pt-4">
+              <h3 class="text-2xl font-semibold">Certifications possibles</h3>
+              <p class="text-lg">Google Cloud Certified – Associate Cloud Engineer</p>
+              <p class="text-lg">AWS Certified Solutions Architect – Associate</p>
+              <p class="text-lg">HashiCorp Certified: Terraform Associate</p>
+            </section>
+          </div>
+        </div>
       </div>
     </div>
   </div>

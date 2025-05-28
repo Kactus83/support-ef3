@@ -3,6 +3,13 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
+    },
+    {
         id   : 'wordpress',
         title: 'WordPress',
         type : 'basic',
@@ -13,7 +20,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id   : 'qualite-architecture',
         title: 'Qualité & Architecture',
         type : 'basic',
-        icon : 'heroicons_outline:code',
+        icon : 'heroicons_outline:code-bracket-square',
         link : '/qualite-architecture'
     },
     {
@@ -29,18 +36,18 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:cpu-chip',
         link : '/iot-domotique'
-    },
-    {
-        id   : 'home',
-        title: 'Accueil',
-        type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
     }
 ];
 
 export const compactNavigation: FuseNavigationItem[] = [
     {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
+    },
+    {
         id   : 'wordpress',
         title: 'WordPress',
         type : 'basic',
@@ -51,7 +58,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         id   : 'qualite-architecture',
         title: 'Qualité & Architecture',
         type : 'basic',
-        icon : 'heroicons_outline:code',
+        icon : 'heroicons_outline:code-bracket-square',
         link : '/qualite-architecture'
     },
     {
@@ -67,18 +74,18 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:cpu-chip',
         link : '/iot-domotique'
-    },
-    {
-        id   : 'home',
-        title: 'Accueil',
-        type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
     }
 ];
 
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
+    },
+    {
         id   : 'wordpress',
         title: 'WordPress',
         type : 'basic',
@@ -89,7 +96,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         id   : 'qualite-architecture',
         title: 'Qualité & Architecture',
         type : 'basic',
-        icon : 'heroicons_outline:code',
+        icon : 'heroicons_outline:code-bracket-square',
         link : '/qualite-architecture'
     },
     {
@@ -105,18 +112,18 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:cpu-chip',
         link : '/iot-domotique'
-    },
-    {
-        id   : 'home',
-        title: 'Accueil',
-        type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
     }
 ];
 
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
+        id   : 'home',
+        title: 'Accueil',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
+    },
+    {
         id   : 'wordpress',
         title: 'WordPress',
         type : 'basic',
@@ -127,7 +134,7 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         id   : 'qualite-architecture',
         title: 'Qualité & Architecture',
         type : 'basic',
-        icon : 'heroicons_outline:code',
+        icon : 'heroicons_outline:code-bracket-square',
         link : '/qualite-architecture'
     },
     {
@@ -143,12 +150,5 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:cpu-chip',
         link : '/iot-domotique'
-    },
-    {
-        id   : 'home',
-        title: 'Accueil',
-        type : 'basic',
-        icon : 'heroicons_outline:home',
-        link : '/home'
     }
 ];
